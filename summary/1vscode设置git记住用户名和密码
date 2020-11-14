@@ -1,0 +1,11 @@
+1、查看git下的用户名和密码：git config --list
+2、git bush中设置Git 全局设置:
+git config --global user.name "用户名" 
+
+git config --global user.email "用户邮箱"
+
+3、设置让VSCode记住git账号和密码：
+
+git config --global credential.helper store
+
+4、关闭重新打开vsCode   关闭重新打开vsCode     关闭重新打开vsCode！！！！
