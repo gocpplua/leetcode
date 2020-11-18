@@ -1,3 +1,4 @@
+// https://leetcode-cn.com/problems/plus-one/solution/
 #include<iostream>
 #include<assert.h>
 #include<vector>
@@ -33,6 +34,7 @@ vector<int> plusOne1(vector<int>& digits) {
 
 // 进位需要加一位是因为后面全是0了，重新分配新建一个数组，把第一个赋为0就好
 // 执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户
+// 需要注意，vector扩容的话可以用insert
 vector<int> plusOne(vector<int>& digits) {
     for(int i = digits.size() - 1; i >= 0; i--)
     {
