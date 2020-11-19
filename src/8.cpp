@@ -21,29 +21,53 @@ int myAtoi(string s) {
         {
             break;
         }
-        
         return 0;
     }
     
+
+    bool positive = true;
     if (s[pos] == '-' || s[pos] == '+')
     {
-        // 将该符号与之后面尽可能多的连续数字字符组合起来，形成一个有符号整数
-        while (pos < s.size()){
-            if (isdigit(s[pos]))
-            {
-                /* code */
-            }
-            
+        if (s[pos] == '-')
+        {
+            positive = false;
         }
-    }    
-    else
-    {
-        // 将其与之后连续的数字字符组合起来，形成一个整数
+        ++pos;   
     }
-    
+
+    while (pos < s.size()){
+        if (isdigit(s[pos]))
+        {
+            recv = (s[pos] - '0') * (positive?1:-1);
+            pos++;
+            break;
+        }
+        return 0;
+    }
+
+    while (pos < s.size()){
+        if (isdigit(s[pos]))
+        {
+            int temp = (s[pos] - '0');
+            if (positive && (recv > INT_MAX / 10 || (recv == INT_MAX / 10 && temp > 7)))
+            {
+                return INT_MAX;
+            }
+            if (!positive && (recv < INT_MIN / 10 || (recv == INT_MIN / 10 && temp > 8)))
+            {
+                return INT_MIN;
+            }   
+            recv = recv * 10 + (s[pos] - '0') * (positive?1:-1);
+            ++pos;
+            continue;
+        }
+        break;
+    }
+    return recv;
 }
 
 int main()
 {
+    cout << myAtoi("-91283472332");
     return 0;
 }
