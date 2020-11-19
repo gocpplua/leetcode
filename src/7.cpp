@@ -28,5 +28,6 @@ int reverse(int x) {
 }
 int main()
 {
+    cout << -54 % 10 << " " << -54 / 10;
     return 0;
 }
