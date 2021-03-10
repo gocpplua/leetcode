@@ -20,6 +20,10 @@ using namespace std;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+
+// !!! 执行用例:  []   -1 一直出错，不知道为什么
+
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
